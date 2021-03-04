@@ -1,0 +1,11 @@
+*.pytest_cache
+*.ini
+*allure-report
+*report
+*.json
+*.idea
+*.vscode
+
+
+# Package Files #
+

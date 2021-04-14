@@ -39,6 +39,7 @@ class Login(object):
             # login.input_code(1234)
             # sleep(0.5)
             login.click_loginbutton()
+            sleep(1)
         except Exception as e:
             raise e
 

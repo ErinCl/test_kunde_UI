@@ -11,7 +11,6 @@ conftest.py 全局变量，主要实现以下功能：
 2、全局参数driver调用
 """
 
-
 import time
 import pytest
 from public.common import pyselenium
@@ -20,9 +19,9 @@ from public.appmodel import loginaction
 from config import globalparam
 from public.common import log
 
-# domain_data = datainfo.get_xls_to_dict("user.xlsx", "Sheet1")["创建域管理员"]
-# user_data = datainfo.get_xls_to_dict("user.xlsx", "authuser")['创建运营部门用户']
+
 log = log.Log()
+
 
 @pytest.fixture(scope="session")
 def driver(request):
@@ -46,7 +45,7 @@ def login_admin(request, driver):
     """用户登录"""
     log.info("用户登录")
     login = loginaction.Login(driver)
-    login.login('15928009283', 'qqq123456.')
+    login.login('15928009284','www123456.')
 
     def end():
         log.info("测试用例执行完成，登出系统")
@@ -54,6 +53,3 @@ def login_admin(request, driver):
 
     request.addfinalizer(end)
     return driver
-
-
-

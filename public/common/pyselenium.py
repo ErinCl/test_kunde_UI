@@ -327,6 +327,28 @@ class PySelenium(object):
                     fail, css, time.time() - t1))
             raise
 
+    def clicks(self, css):
+        """
+        It can click any text / image can be clicked
+        Connection, check box, radio buttons, and even drop-down box etc..
+
+        Usage:
+        driver.click("id->kw")
+        """
+        t1 = time.time()
+        try:
+            self.element_wait(css)
+            el = self.get_elements(css)
+            el.click()
+            self.my_print(
+                "{0} Clicked element: <{1}>, Spend {2} seconds".format(
+                    success, css, time.time() - t1))
+        except Exception:
+            self.my_print(
+                "{0} Unable to click element: <{1}>, Spend {2} seconds".format(
+                    fail, css, time.time() - t1))
+            raise
+
     def right_click(self, css):
         """
         Right click element.

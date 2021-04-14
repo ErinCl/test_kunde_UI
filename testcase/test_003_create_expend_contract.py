@@ -22,11 +22,11 @@ class TestCreateContract():
     @pytest.mark.flaky(reruns=globalparam.RENUM)
     def test_create_zc_contract(self, login_admin):
         dr = login_admin
-        t_data = {'casename': '主材采购申请',
-                  'pricing_type': '2.0',
+        t_data = {'casename': '主材采购合同',
+                  'pricing_type': '1.0',
                   'project': '21010004',
                   'contract_officer': '测试甲方',
-                  'supplier': 'SUP-20201022-0001',
+                  'supplier': 'SUP-20201016-0001',
                   'pricing_id': 'HTDJ-20210208-0001',
                   'main_content': '010002',
                   'contract_explain': '合同说明',

@@ -45,7 +45,7 @@ def login_admin(request, driver):
     """用户登录"""
     log.info("用户登录")
     login = loginaction.Login(driver)
-    login.login('15928009284','www123456.')
+    login.login('15928009283','www123456.')
 
     def end():
         log.info("测试用例执行完成，登出系统")

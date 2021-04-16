@@ -101,12 +101,11 @@ class CreatePlanApplyAction(object):
             self.propg.click_audit_button()
             sleep(1)
             # 断言
-            flag =self.dr.element_exist('xpath-> //span[text()="已审核"]')
+            flag = self.dr.element_exist('xpath-> //span[text()="已审核"]')
             assert flag
             # 关闭物资管理
             self.propg.move_good_button()
             self.propg.close_good_button()
-
 
             # # 点击退出
             # self.propg.click_quit_button()
@@ -192,6 +191,12 @@ class CreatePlanApplyAction(object):
             sleep(1)
             # 审核
             self.propg.click_audit_button()
+            # 断言
+            flag = self.dr.element_exist('xpath-> //span[text()="已审核"]')
+            assert flag
+            # 关闭物资管理
+            self.propg.move_good_button()
+            self.propg.close_good_button()
 
 
 if __name__ == '__main__':

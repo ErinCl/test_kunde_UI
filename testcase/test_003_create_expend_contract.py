@@ -3,7 +3,7 @@
 # @Time    : 2021/02/26
 # @Author  : chenlin
 # @Site    :
-# @File    : test_001_create_planAppply.py
+# @File    : test_003_create_planAppply.py
 # @Software: PyCharm
 
 
@@ -55,6 +55,14 @@ class TestCreateContract():
                                      str(t_data["contract_explain"]),
                                      str(t_data["payment_type"]),
                                      str(t_data["compress_zip"]))
+
+
+    @allure.story('审核预审合同')
+    @pytest.mark.flaky(reruns=globalparam.RENUM)
+    def test_audit_contract(self,login_admin):
+        dr=login_admin
+        ua = expendContractAction.CreateExpendContractAction(dr)
+
 
 
 if __name__ == "__main__":

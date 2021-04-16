@@ -40,6 +40,10 @@ class expendContractPage(basepage.Page):
         self.log.debug("点击新增合同列表")
         self.dr.click("xpath-> //*[@id='tblnew']/span/span")
 
+    def input_pricing_type(self,value):
+        "填写定价类型"
+        self.dr.type_and_enter('xpath-> //*[@id="kdzl_contpricetype"]/div[2]/div/div[1]/input',value)
+
     def input_purchase_type(self, value):
         "填写采购类型"
         self.dr.type_and_enter('xpath-> //*[@id="kdzl_purchasetype"]/div[2]/div/div[1]/input', value)
@@ -66,9 +70,13 @@ class expendContractPage(basepage.Page):
         sleep(1)
         self.dr.click('xpath-> //*[@id="btnok"]/span')
 
-    def input_contract_content(self, value):
-        '输入合同内容'
+    def input_lw_contract_content(self, value):
+        '输入劳务合同内容'
         self.dr.type_and_enter('xpath-> //*[@id="kdzl_lwcontent"]/div[2]/div/div[1]/input', value)
+
+    def input_zc_contract_content(self,value):
+        '输入材料合同内容'
+        self.dr.type_and_enter('xpath-> //*[@id="kdzl_matcontent"]/div[2]/div/div[1]/input',value)
 
     def input_contract_explain(self, value):
         '输入合同说明'
@@ -78,11 +86,20 @@ class expendContractPage(basepage.Page):
         '输入付款方式'
         self.dr.type_and_enter('xpath-> //*[@id="kdzl_payinfo"]/div[2]/div/textarea', value)
 
-    def click_good_detail(self):
-        '选择物料明细'
+    def click_zc_good_detail(self):
+        "选择物料明细"
+        self.dr.click('xpath-> //*[@id="kdzl_advconbaritemap1"]/span')
+
+    def click_lw_good_detail(self):
+        '选择劳务明细'
         self.dr.click('xpath-> //*[@id="kdzl_selectentry"]/span')
 
-    def click_pricing_detail(self):
+    def click_zc_pricing_detail(self):
+        '选择材料明细'
+        self.dr.click('xpath-> /html/body/div[11]/div/div[2]/div/div/div[3]/div[1]/div[2]/div/div/div/div[2]/div[2]/div/div[2]/div[1]/div[3]/div[1]/div/div/div/div')
+        self.dr.click('xpath-> //*[@id="btnok"]/span')
+
+    def click_lw_pricing_detail(self):
         '选择劳务明细'
         self.dr.click(
             'xpath-> /html/body/div[11]/div/div[2]/div/div/div[3]/div[1]/div/div/div/div/div[2]/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/div/div[2]/div')

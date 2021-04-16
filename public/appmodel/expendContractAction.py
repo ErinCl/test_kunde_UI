@@ -71,21 +71,25 @@ class CreateExpendContractAction(object):
         self.propg.click_pricing_num()
         sleep(2)
         # 输入合同内容
-        self.propg.input_contract_content(main_content)
+        self.propg.input_zc_contract_content(main_content)
         # 输入合同说明
         self.propg.input_contract_explain(contract_explain)
         # 输入付款方式
         self.propg.input_payment_type(payment_type)
         # 选择物料信息
-        self.propg.click_good_detail()
+        self.propg.click_zc_good_detail()
+        sleep(1)
         # 选择定价单明细
-        self.propg.click_pricing_detail()
+        self.propg.click_zc_pricing_detail()
         sleep(1)
         # 上传附件
         self.propg.input_contract_zip(compress_zip)
         sleep(2)
         # 提交合同
         self.propg.click_submit_button()
+        # 断言
+        flag = self.dr.element_exist('xpath-> //input[text()="预审"]')
+        assert flag
 
     def create_expend_lw_contract(self, purchase_type, project, contract_officer, supplier, main_content,
                                   contract_explain, payment_type, compress_zip):
@@ -136,18 +140,21 @@ class CreateExpendContractAction(object):
             self.propg.click_pricing_num()
             sleep(2)
             # 输入合同内容
-            self.propg.input_contract_content(main_content)
+            self.propg.input_lw_contract_content(main_content)
             # 输入合同说明
             self.propg.input_contract_explain(contract_explain)
             # 输入付款方式
             self.propg.input_payment_type(payment_type)
             # 选择物料信息
-            self.propg.click_good_detail()
+            self.propg.click_lw_good_detail()
             # 选择定价单明细
-            self.propg.click_pricing_detail()
+            self.propg.click_lw_pricing_detail()
             sleep(1)
             # 上传附件
             self.propg.input_contract_zip(compress_zip)
             sleep(2)
             # 提交合同
             self.propg.click_submit_button()
+
+    def audit_contract(self):
+        """审核预审合同"""
